@@ -1,16 +1,15 @@
 let fs = require('fs');
-let fileName = process.argv[1];
+// let fileName = process.argv[1];
     // console.log(fileName);
-let buffer = null;
-let numberLine = null;
-
+let contents;
 try {
-	buffer = fs.readFileSync(fileName, 'utf8');
-	let lineArr = buffer.toString().split('\n');
-    console.log(lineArr);
-	numberLine = lineArr.length -1;
-	console.log(numberLine);
+	contents = fs
+				.readFileSync(process.argv[1], 'utf8')
+				.toString().split('\n').length -1;
+	console.log(contents);
 }
 catch (e) {
 	console.log(e);
 }
+
+// console.log(process.argv)
